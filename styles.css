@@ -299,9 +299,19 @@ h3 {
 
 .hero-logo-crop {
   position: absolute;
-  inset: 28px 46px 156px;
+  inset: 28px 46px 118px;
   z-index: 1;
   overflow: hidden;
+}
+
+.hero-logo-crop::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background: linear-gradient(180deg, rgba(14, 52, 86, 0), rgba(14, 52, 86, 0.96) 58%, rgba(14, 52, 86, 1));
 }
 
 .hero-visual::before {
@@ -320,7 +330,7 @@ h3 {
   top: 50%;
   width: min(520px, 122%);
   max-width: none;
-  transform: translate(-50%, -34%);
+  transform: translate(-50%, -40%);
   filter: drop-shadow(0 28px 54px rgba(0, 0, 0, 0.36));
 }
 
