@@ -299,7 +299,7 @@ h3 {
 
 .hero-logo-crop {
   position: absolute;
-  inset: 34px 46px 110px;
+  inset: 28px 46px 156px;
   z-index: 1;
   overflow: hidden;
 }
@@ -320,7 +320,7 @@ h3 {
   top: 50%;
   width: min(520px, 122%);
   max-width: none;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -34%);
   filter: drop-shadow(0 28px 54px rgba(0, 0, 0, 0.36));
 }
 
@@ -565,12 +565,15 @@ h3 {
   display: block;
   margin-bottom: 18px;
   color: var(--paper);
-  font-size: clamp(32px, 6vw, 78px);
-  line-height: 1.08;
+  font-size: clamp(24px, 4vw, 44px);
+  line-height: 1.16;
 }
 
 .mvv-hero p:not(.eyebrow) {
   color: rgba(255, 255, 255, 0.84);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 850;
+  line-height: 1.75;
 }
 
 .principles {
