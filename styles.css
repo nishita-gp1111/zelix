@@ -359,7 +359,10 @@ h3 {
 }
 
 .contact-title {
-  font-size: clamp(32px, 4.2vw, 54px);
+  width: max-content;
+  max-width: 100%;
+  font-size: clamp(30px, 3.6vw, 48px);
+  white-space: nowrap;
   word-break: keep-all;
   overflow-wrap: normal;
 }
