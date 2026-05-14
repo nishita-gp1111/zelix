@@ -297,41 +297,25 @@ h3 {
   box-shadow: 0 36px 96px rgba(0, 0, 0, 0.28);
 }
 
-.hero-logo-crop {
-  position: absolute;
-  inset: 28px 46px 118px;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.hero-logo-crop::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 72px;
-  background: linear-gradient(180deg, rgba(14, 52, 86, 0), rgba(14, 52, 86, 0.96) 58%, rgba(14, 52, 86, 1));
-}
-
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: auto -12% 18% -12%;
-  height: 150px;
+  inset: auto -12% 30% -12%;
+  height: 170px;
   background: linear-gradient(90deg, rgba(37, 88, 238, 0.92), rgba(103, 213, 255, 0.88), rgba(5, 21, 43, 0.66));
   clip-path: polygon(0 44%, 18% 60%, 45% 42%, 73% 22%, 100% 36%, 100% 62%, 74% 48%, 48% 64%, 20% 82%, 0 66%);
-  opacity: 0.48;
+  opacity: 0.72;
 }
 
-.hero-visual img {
+.hero-visual::after {
+  content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: min(520px, 122%);
-  max-width: none;
-  transform: translate(-50%, -40%);
-  filter: drop-shadow(0 28px 54px rgba(0, 0, 0, 0.36));
+  inset: 42px 42px auto auto;
+  width: 46%;
+  height: 42%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 217, 181, 0.28), transparent 64%);
+  filter: blur(2px);
 }
 
 .hero-visual strong {
@@ -811,10 +795,6 @@ h3 {
 
   .hero-visual {
     min-height: 360px;
-  }
-
-  .hero-visual img {
-    width: min(360px, 90%);
   }
 
   .card,
