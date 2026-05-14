@@ -383,17 +383,9 @@ h3 {
   align-items: center;
 }
 
-.equal-height {
-  align-items: stretch;
-}
-
-.equal-height > * {
-  min-height: 100%;
-}
-
-.equal-height .table,
-.equal-height .media-frame {
-  height: 100%;
+.balanced-split {
+  grid-template-columns: minmax(0, 1.06fr) minmax(360px, 0.94fr);
+  gap: clamp(36px, 5vw, 64px);
 }
 
 .concept-copy {
@@ -412,7 +404,8 @@ h3 {
 
 .media-frame {
   position: relative;
-  min-height: 390px;
+  min-height: 0;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
