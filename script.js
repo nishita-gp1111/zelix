@@ -25,6 +25,10 @@ revealItems.forEach((item) => {
   }
 });
 
+document.querySelectorAll(".works li, .principles li").forEach((item, index) => {
+  item.style.setProperty("--item-index", index);
+});
+
 if ("IntersectionObserver" in window) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -48,9 +52,24 @@ const updateScrollEffects = () => {
   const scrollTop = window.scrollY;
   const scrollRange = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollRange > 0 ? Math.min(scrollTop / scrollRange, 1) : 0;
+  const hero = document.querySelector(".hero");
+  const pageHero = document.querySelector(".page-hero");
 
   document.documentElement.style.setProperty("--scroll-progress", progress.toFixed(4));
   siteHeader?.classList.toggle("is-scrolled", scrollTop > 18);
+
+  if (hero) {
+    const heroProgress = Math.min(scrollTop / Math.max(hero.offsetHeight, 1), 1);
+    hero.style.setProperty("--hero-copy-y", `${(heroProgress * 42).toFixed(1)}px`);
+    hero.style.setProperty("--hero-visual-y", `${(heroProgress * 24).toFixed(1)}px`);
+    hero.style.setProperty("--hero-opacity", Math.max(1 - heroProgress * 0.72, 0.28).toFixed(3));
+  }
+
+  if (pageHero) {
+    const pageHeroProgress = Math.min(scrollTop / Math.max(pageHero.offsetHeight, 1), 1);
+    pageHero.style.setProperty("--page-hero-y", `${(pageHeroProgress * 34).toFixed(1)}px`);
+  }
+
   scrollTicking = false;
 };
 
@@ -81,6 +100,23 @@ if (heroVisual && !reduceMotion.matches && window.matchMedia("(pointer: fine)").
   heroVisual.addEventListener("pointerleave", () => {
     heroVisual.style.setProperty("--tilt-x", "0deg");
     heroVisual.style.setProperty("--tilt-y", "0deg");
+  });
+}
+
+if (!reduceMotion.matches && window.matchMedia("(pointer: fine)").matches) {
+  document.querySelectorAll(".card, .service-card, .value-card, .media-frame, .mvv-hero").forEach((surface) => {
+    surface.addEventListener("pointermove", (event) => {
+      const bounds = surface.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+      const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+      surface.style.setProperty("--pointer-x", `${x.toFixed(1)}%`);
+      surface.style.setProperty("--pointer-y", `${y.toFixed(1)}%`);
+    });
+
+    surface.addEventListener("pointerleave", () => {
+      surface.style.removeProperty("--pointer-x");
+      surface.style.removeProperty("--pointer-y");
+    });
   });
 }
 
