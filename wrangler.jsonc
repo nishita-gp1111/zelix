@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "broad-thunder-68ee",
+  "compatibility_date": "2026-08-25",
+  "assets": {
+    "directory": "."
+  }
+}
